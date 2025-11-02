@@ -1,5 +1,7 @@
+# NAME:VESHWANTH
+# REG NO:212224230300
 # 4-BIT-RIPPLE-COUNTER
-
+# DATE:02-11-2025
 **AIM:**
 
 To implement  4 Bit Ripple Counter using verilog and validating their functionality using their functional tables
@@ -24,17 +26,54 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Ripple counter = asynchronous counter; each flip-flop is clocked by the previous one.
+2.Declare clk, rstn (inputs) and q[3:0] (4-bit output).
+3.Triggered by external clock — toggles on every rising edge of clk
+4.Each triggered by falling edge of the previous flip-flop output.
+5.Apply active-low reset (rstn = 0) to clear all outputs to 0.
+6.Close the design with endmodule.
+7.Run in simulator — ensure q counts 0000 → 1111 → 0000.
 
 **PROGRAM**
 
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+    /* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
- Developed by: RegisterNumber:
-*/
+    module RIPPER (clk, rstn, q);
+    input clk, rstn;       
+    output [3:0] q;        
+    reg [3:0] q;
+    
+    always @(posedge clk or negedge rstn)
+        if (!rstn)
+        q[0] <= 0;
+        else
+        q[0] <= ~q[0];
+    always @(negedge q[0] or negedge rstn)
+        if (!rstn)
+        q[1] <= 0;
+        else
+        q[1] <= ~q[1];
+    always @(negedge q[1] or negedge rstn)
+        if (!rstn)
+        q[2] <= 0;
+        else
+        q[2] <= ~q[2];
+
+    always @(negedge q[2] or negedge rstn)
+        if (!rstn)
+        q[3] <= 0;
+        else
+        q[3] <= ~q[3];
+
+    endmodule
+
+
+    */
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
 
 **RESULTS**
+
+The given 4Bit Ripper of asychronous Counter is successfully implemented using the Verilog HDL in the Quartus Prime.
