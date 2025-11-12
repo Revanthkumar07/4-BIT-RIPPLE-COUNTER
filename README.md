@@ -1,7 +1,9 @@
-# NAME:VESHWANTH
-# REG NO:212224230300
 # 4-BIT-RIPPLE-COUNTER
-# DATE:02-11-2025
+## NAME: B V REVANTH KUMAR
+## REG NO:212224240023
+## DATE: 12-11-2025
+
+
 **AIM:**
 
 To implement  4 Bit Ripple Counter using verilog and validating their functionality using their functional tables
